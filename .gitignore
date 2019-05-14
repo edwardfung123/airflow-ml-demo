@@ -1,0 +1,4 @@
+airflow_data/*
+
+# VIM
+*.swp
