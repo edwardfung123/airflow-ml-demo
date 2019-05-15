@@ -1,2 +1,5 @@
-*
-!.gitignore
+logs/
+unittests.cfg
+airflow.cfg
+airflow.db
+airflow-webserver.pid
