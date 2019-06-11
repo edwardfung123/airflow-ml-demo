@@ -53,6 +53,7 @@ t3 = BashOperator(
     dag=dag)
 
 # Setting up Dependencies
+# There are many code to define this "dependencies" stuff.
 # See: https://airflow.apache.org/tutorial.html#setting-up-dependencies
 t2.set_upstream(t1)
 t3.set_upstream(t1)
