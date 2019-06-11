@@ -36,6 +36,8 @@ t2 = BashOperator(
     retries=3,
     dag=dag)
 
+# Templating with Jinja
+# see: https://airflow.apache.org/tutorial.html#templating-with-jinja
 templated_command = """
     {% for i in range(5) %}
         echo "{{ ds }}"
@@ -50,5 +52,7 @@ t3 = BashOperator(
     params={'my_param': 'Parameter I passed in'},
     dag=dag)
 
+# Setting up Dependencies
+# See: https://airflow.apache.org/tutorial.html#setting-up-dependencies
 t2.set_upstream(t1)
 t3.set_upstream(t1)
