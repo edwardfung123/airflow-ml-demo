@@ -93,6 +93,7 @@ with DAG('clp', default_args=default_args, schedule_interval=timedelta(days=1)) 
         provide_context=True
         )
 
+    # TODO: fix this SQL template and do a mass insert.
     sql = '''SELECT 1;
     '''
     save_to_db_task = PostgresOperator(
@@ -100,4 +101,6 @@ with DAG('clp', default_args=default_args, schedule_interval=timedelta(days=1)) 
         sql=sql,
         postgres_conn_id='CLP_ELECTRIC_CAR_CHARGER_POSTGRES',
         )
+
+    fetch_task >> parse_task >> sql
 
